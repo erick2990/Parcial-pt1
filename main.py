@@ -1,5 +1,8 @@
 empleados = {}  # Diccionario vacío para guardar todos los empleados
 
+
+
+
 def ingresar_empleados():
     print('Bienvenido!!!!')
     cantidad = int(input('Ingrese cuántos empleados desea agregar: '))
@@ -36,6 +39,7 @@ def ingresar_empleados():
             }
         }
 
+#funcion para mostrar los datos unicamente verifica antes si no hay empleados
 def mostrarDatos():
     if not empleados:
         print("No hay empleados registrados.")
@@ -50,7 +54,18 @@ def mostrarDatos():
         print(f'Teléfono: {datos["contacto"]["telefono"]}')
         print(f'Correo: {datos["contacto"]["correo"]}')
         print(f'Promedio de evaluación: {datos["evaluacion"]["promedio"]:.2f}')
-        print(f'Estado: {"Satisfactorio" if datos["evaluacion"]["estado"].upper() == "S" else "No satisfactorio"}')
+        print(f'Estado: {"Satisfactorio" if datos["evaluacion"]["estado"].upper() == "S" else "No satisfactorio"}') #Verificaciond de estado del trabajador
+
+#Funcion para buscar empleado por codigo
+
+def buscar_empleado():
+    busc_codigo = input('Ingrese el codigo a buscar del emppleado')
+    if busc_codigo in empleados:
+        print(empleados[busc_codigo])
+
+    else:
+        print("NO SE ENCONTRO REGISTRO")
+
 
 # Menú principal
 fin_menu = True
@@ -69,7 +84,7 @@ while fin_menu:
             case 2:
                 mostrarDatos()
             case 3:
-                print("Esta opción aún no está implementada.")
+                buscar_empleado()
             case 4:
                 print('Gracias por usar el sistema.')
                 fin_menu = False
