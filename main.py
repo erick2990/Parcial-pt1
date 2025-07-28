@@ -14,12 +14,36 @@ def ingresar_empleados():
     cantidad = int(input('Ingrese cuantos empleados desea agregar: '))
     for i in range(0, cantidad):
         print(f'\t\t\tIngrese los datos del {i+1} trabajador: ')
-        empleados["codigo"] = input('Ingres codigo unico: ')
-        empleados["codigo"] = {
-            "nombre"= input('Ingrese el nombre: ')
-            empleados["departamento"] = input('Ingrese el departamento: ')
-            empleados["antig"] = input('Ingrese cuantos anios ha laborado el trabjaador: ')
-            empleado_tmp = empleado()  # Se instancia el objeto de tipo empleado para acceeder a sus subdiccionario
+        codigo = input('Ingres codigo unico: ')
+        nombre = input('Ingrese el nombre; ')
+        dep = input('Ingrese el nombre del departamento: ')
+        ant = input('Ingrese la antiguedad: ')
+        punt = int(input('Ingrese una calificacion de  0 a 10 en puntualidad'))
+        equipo = int(input('Ingrese una calificacion de  0 a 10 en puntualidad'))
+        product = int(input('Ingrese una calificacion de  0 a 10 en puntualidad'))
+        desemp = input('Ingrese si ha tenido un buen desempeño: ')
+        promedio = (equipo + product + punt) /3
+        sat = input('Ingrese si ha tenido un desempeño satisfactorio o no (S/N)')
+        telefono = input('Ingrese numero de telefono: ')
+        correo = input('Ingrese el correo: ')
+        empleados = {
+            "codigo":{
+                "nombre" : nombre,
+                "departamento" : dep,
+                "antiguedad" : ant,
+                "evaluacion" : {
+                    "puntualidad" : punt,
+                    "equipo": equipo,
+                    "productividad": product,
+                    "observaciones": desemp,
+                    "promedio" : promedio,
+                    "Estado" : sat
+                }
+            },
+            "contacto":{
+                "telefono" : telefono,
+                "correo" : correo
+            }
         }
 
 
@@ -47,7 +71,7 @@ while fin_menu:
             case _:
                 print('Opcion incorrecta')
 
-    except ValueError:
+    except Exception as e:
         print('Ocurrio un error vuelva  a intentarlo')
 
 
