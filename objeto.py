@@ -7,7 +7,6 @@ class empleado:
     def __init__(self):
         informacion = {}
 
-
     def llenar_diccionario(self,codigo, nombre, dep, ant, punt, equipo, product, desemp, sat, telefono, correo):
         empleados[codigo] = {
             "nombre": nombre,
@@ -27,7 +26,6 @@ class empleado:
         }
 
 class manejo_ev(empleado):
-
 
     def calcular_promedio(self):
         print('El promedio del trabajador es: ')
@@ -56,6 +54,7 @@ def ingresar_empleados():
         sat = input('¿Desempeño satisfactorio? (S/N): ')
         telefono = input('Número de teléfono: ')
         correo = input('Correo electrónico: ')
+        empleado_tmp = empleado(codigo, nombre, dep, ant, punt, equipo, product, desemp, promedio, sat, telefono, correo)
 
 
 
@@ -77,18 +76,6 @@ def mostrarDatos():
         print(f'Promedio de evaluación: {datos["evaluacion"]["promedio"]:.2f}')
         print(f'Estado: {"Satisfactorio" if datos["evaluacion"]["estado"].upper() == "S" else "No satisfactorio"}') #Verificaciond de estado del trabajador
 
-#Funcion para buscar empleado por codigo
-
-def buscar_empleado():
-    busc_codigo = input('Ingrese el codigo a buscar del emppleado')
-    if busc_codigo in empleados:
-        print(empleados[busc_codigo])
-
-    else:
-        print("NO SE ENCONTRO REGISTRO")
-
-
-
 
 # Menú principal
 fin_menu = True
@@ -106,8 +93,8 @@ while fin_menu:
                 ingresar_empleados()
             case 2:
                 mostrarDatos()
-            case 3:
-                buscar_empleado()
+            #case 3:
+
             case 4:
                 print('Gracias por usar el sistema.')
                 fin_menu = False
