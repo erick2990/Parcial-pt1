@@ -67,6 +67,8 @@ def buscar_empleado():
         print("NO SE ENCONTRO REGISTRO")
 
 
+
+
 # Menú principal
 fin_menu = True
 
